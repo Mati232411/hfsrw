@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Mounting HFS RW"
+read -p "Whats my HDD example: /dev/sda1 >> " disk
+sudo fsck.hfsplus $disk
+read -p "Where >> " where
+sudo mount $disk $where -t hfsplus -o force,rw
+sudo chown mateusz:mateusz $where
